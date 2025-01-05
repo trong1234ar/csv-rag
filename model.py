@@ -1,10 +1,13 @@
 from langchain_google_genai import ChatGoogleGenerativeAI
 import os
 from dotenv import load_dotenv
+import streamlit as st
 
 load_dotenv(".env")
-langchain_api_key = os.getenv("langchain_api")
-gemini_api_key = os.getenv("gemini_api")
+# langchain_api_key = os.getenv("langchain_api")
+# gemini_api_key = os.getenv("gemini_api")
+langchain_api_key = st.secrets["langchain_api"]
+gemini_api_key = st.secrets["gemini_api"]
 
 os.environ["LANGCHAIN_TRACING_V2"] = "true"
 os.environ["LANGCHAIN_API_KEY"] = langchain_api_key
